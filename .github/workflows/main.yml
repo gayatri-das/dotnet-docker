@@ -24,6 +24,6 @@ jobs:
         name: Build and Push
         uses: docker/build-push-action@v3
         with:
-          context: ./Dockerfile
+          context: ./src/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/dotnet-docker:v1
