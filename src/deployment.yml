@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-docker-deployment
+spec:
+  selector:
+    matchLabels:
+      app: dotnet-docker-pod
+  template:
+    metadata:
+      labels:
+        app: dotnet-docker-pod
+    spec:
+      containers:
+        - name: dotnet-docker-container
+          image: dotnet-docker:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
